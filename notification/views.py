@@ -8,7 +8,7 @@ from notification.models import Notification
 
 def get_notification(request):
     sqs = AmazonSQS()
-    messages = sqs.get_messages()
+    messages = sqs.get_notifications()
     messages = messages if messages else []
     for message in messages:
         message_dict = message.get_body()
